@@ -164,3 +164,29 @@ Run TypeScript checks: `cd frontend && npx tsc --noEmit`
 3. **Context Building**: Only `content` is sent to LLM, not `reasoning_content`
 4. **Session Titles**: Auto-generated from first user message (first 30 chars)
 5. **Error Messages**: Always in Chinese for user-facing errors
+
+## Development Server Guidelines
+
+**IMPORTANT**: When starting development servers:
+
+1. **Do NOT create temporary files** in the project root:
+   - No `.log` files (do not use `nohup` with output redirection)
+   - No `.pid` files (do not save process IDs to files)
+   - These files clutter the workspace and should not be committed
+
+2. **Preferred approaches**:
+   - Run servers in separate terminal windows/tabs manually
+   - Use `tmux` or `screen` for session management if needed
+   - Or simply use `&` to background without creating log files
+
+3. **Correct example** (Terminal 1):
+   ```bash
+   cd backend && source venv/bin/activate && uvicorn app.main:app --reload
+   ```
+   
+   **Correct example** (Terminal 2):
+   ```bash
+   cd frontend && npm run dev
+   ```
+
+4. **If asked to start servers programmatically**, use foreground mode so the user can see output directly, or ask the user if they prefer running in separate terminals.

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import type { Message } from '../types';
 import styles from './ChatMessage.module.css';
 
@@ -23,25 +24,23 @@ export function ChatMessage({ message, isStreaming = false }: ChatMessageProps) 
   if (message.role === 'assistant') {
     return (
       <div className={styles.assistantRow}>
-        <div className={styles.assistantBubble}>
-          {hasReasoning && (
-            <div className={styles.reasoning}>
-              <button
-                type="button"
-                className={styles.reasoningToggle}
-                onClick={() => setReasoningExpanded(!reasoningExpanded)}
-              >
-                {reasoningExpanded ? '▼' : '▶'} 思考过程
-              </button>
-              {reasoningExpanded && (
-                <pre className={styles.reasoningContent}>{message.reasoning_content}</pre>
-              )}
-            </div>
-          )}
-          <div className={styles.content}>
-            <ReactMarkdown>{message.content || ''}</ReactMarkdown>
-            {isStreaming && <span className={styles.cursor} />}
+        {hasReasoning && (
+          <div className={styles.reasoning}>
+            <button
+              type="button"
+              className={styles.reasoningToggle}
+              onClick={() => setReasoningExpanded(!reasoningExpanded)}
+            >
+              {reasoningExpanded ? '▼' : '▶'} 思考过程
+            </button>
+            {reasoningExpanded && (
+              <pre className={styles.reasoningContent}>{message.reasoning_content}</pre>
+            )}
           </div>
+        )}
+        <div className={styles.content}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.content || ''}</ReactMarkdown>
+          {isStreaming && <span className={styles.cursor} />}
         </div>
       </div>
     );

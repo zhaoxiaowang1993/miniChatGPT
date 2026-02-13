@@ -12,26 +12,18 @@
   border-radius: 1rem 1rem 0.25rem 1rem;
   white-space: pre-wrap;
   word-break: break-word;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .assistantRow {
-  display: flex;
-  justify-content: flex-start;
-  padding: 0.75rem 1rem;
-}
-
-.assistantBubble {
-  max-width: 85%;
-  padding: 0.75rem 1rem;
-  background: var(--bg-secondary, #2f2f2f);
-  border-radius: 1rem 1rem 1rem 0.25rem;
-  white-space: pre-wrap;
-  word-break: break-word;
+  padding: 0.75rem 1.5rem;
+  max-width: 100%;
 }
 
 .reasoning {
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -57,16 +49,53 @@
 }
 
 .content {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 2;
 }
 
 .content p {
-  margin: 0 0 0.5rem;
+  margin: 0 0 1.25rem;
 }
 
 .content p:last-child {
   margin-bottom: 0;
+}
+
+.content ul,
+.content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin: 1.5rem 0 1rem;
+  line-height: 1.4;
+}
+
+.content h1:first-child,
+.content h2:first-child,
+.content h3:first-child,
+.content h4:first-child,
+.content h5:first-child,
+.content h6:first-child {
+  margin-top: 0;
+}
+
+.content blockquote {
+  margin: 1.25rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--accent, #10a37f);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0 0.25rem 0.25rem 0;
 }
 
 .content code {
@@ -87,6 +116,33 @@
 .content pre code {
   background: none;
   padding: 0;
+}
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.content th,
+.content td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+.content th {
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+
+.content tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.content tr:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .cursor {
