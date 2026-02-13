@@ -1,0 +1,134 @@
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-width: 48rem;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.errorBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 0.5rem;
+  margin: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #fca5a5;
+}
+
+.errorDismiss {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  opacity: 0.8;
+}
+
+.errorDismiss:hover {
+  opacity: 1;
+}
+
+.messageList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  gap: 0.5rem;
+  color: var(--text-muted, #888);
+}
+
+.loadingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: loadingBounce 0.6s ease-in-out infinite alternate;
+}
+
+.loadingDot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loadingDot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.loadingText {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+@keyframes loadingBounce {
+  to {
+    transform: translateY(-6px);
+    opacity: 0.5;
+  }
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 300px;
+  color: var(--text-muted, #888);
+  gap: 0.5rem;
+}
+
+.emptyTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.9rem !important;
+  opacity: 0.8;
+}
+
+.inputArea {
+  flex-shrink: 0;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.sending {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #888);
+}
+
+.sendingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
